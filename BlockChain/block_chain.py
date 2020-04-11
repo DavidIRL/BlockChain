@@ -24,7 +24,7 @@ class BlockChain:
             # checking to be sure the head hash value
             # and prev_hash value of current block match
             if last_hash != block.previous_hash:
-                raise AttributeError
+                raise ValueError('Previous hash value in block does not make the hash value from the previous block')
             head = self.head
             head.next = block
             block.prev = head
@@ -35,7 +35,7 @@ class BlockChain:
             # checking to be sure the current tail hash
             # and prev_hash value of current block match
             if last_hash != block.previous_hash:
-                raise AttributeError
+                raise ValueError('Previous hash value in block does not make the hash value from the previous block')
             # chain is established
             tail = self.tail
             new_tail = block

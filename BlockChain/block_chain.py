@@ -11,7 +11,7 @@ class BlockChain:
     def add_block(self, block):
         # check if block is Block
         if not isinstance(block, Block):
-            raise TypeError()
+            raise TypeError('input is not of the Block class')
         if block == None:
             return
         

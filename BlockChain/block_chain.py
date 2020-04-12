@@ -69,15 +69,21 @@ if __name__ == '__main__':
     print('\n')
 
     # a new block w/ same data to show hash is unique per block
-    newer_data = 'an irrelevant string of characters to be used as data for encoding our new block'
-    b2 = Block(datetime.datetime.now(), newer_data, b1.hash)
+    b2 = Block(datetime.datetime.now(), new_data, b1.hash)
     print(b2)
     print('\n')
+
+    b3 = Block(datetime.datetime.now(), new_data, '0766rdcfvgu9yu96580g')
 
     blockchain = BlockChain()
 
     blockchain.add_block(genesis)
     blockchain.add_block(b1)
     blockchain.add_block(b2)
-    print('\n')
     print(blockchain)
+
+    #blockchain.add_block(b3)
+    # should return an error as the hash will not match the previous Block's hash
+    
+    #blockchain.add_block(new_data)
+    # should return an error since new_data is not a Block object
